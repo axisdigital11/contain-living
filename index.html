@@ -156,13 +156,22 @@ section{padding:110px 0}
 .sector img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .sector:hover img{transform:scale(1.05)}
 .sector-l{position:absolute;inset-inline:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(to top,rgba(11,17,32,.88),transparent);font-weight:700;font-size:17px;text-align:center;color:#fff}
-.war-compare{display:grid;grid-template-columns:1fr 1.25fr;gap:20px;margin-top:22px}
-.wc{border:1px solid rgba(32,36,43,.14);border-radius:14px;padding:20px 22px}
-.wc-l{display:block;font-size:13.5px;font-weight:700;letter-spacing:.06em;color:var(--sand-muted);margin-bottom:8px}
-.wc p{color:var(--sand-muted);font-size:16.5px}
-.wc-us{border-color:var(--amber);background:rgba(232,131,58,.06)}
+.war-compare{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;margin-top:26px;position:relative;align-items:stretch}
+.wc{border:1px solid rgba(32,36,43,.14);border-radius:16px;padding:24px 26px}
+.wc-l{display:block;font-size:13.5px;font-weight:700;letter-spacing:.06em;color:var(--sand-muted);margin-bottom:6px}
+.wc-yr{display:flex;align-items:baseline;gap:12px;margin:4px 0 16px}
+.wc-yr b{font-size:58px;font-weight:800;line-height:1;color:#B9AFA0}
+.wc-yr span{font-size:17px;font-weight:700;color:var(--sand-muted)}
+.wc-list{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0;margin:0}
+.wc-list li{display:flex;gap:10px;font-size:15.5px;color:var(--sand-muted);align-items:baseline}
+.wc-list li.no::before{content:"✕";color:#C4534A;font-weight:800}
+.wc-list li.yes::before{content:"✓";color:var(--amber);font-weight:800}
+.vs{position:absolute;top:50%;right:50%;transform:translate(50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--sand-ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;z-index:2;box-shadow:0 8px 20px rgba(32,36,43,.3)}
+.wc-us{border:2px solid var(--amber);background:rgba(232,131,58,.07);box-shadow:0 16px 40px rgba(232,131,58,.18)}
 .wc-us .wc-l{color:var(--amber)}
-.wc-us p{color:var(--sand-ink);font-weight:600}
+.wc-us .wc-yr b{color:var(--amber);font-size:68px}
+.wc-us .wc-yr span{color:var(--sand-ink)}
+.wc-us .wc-list li{color:var(--sand-ink);font-weight:600;font-size:16px}
 
 .model-body{padding:26px 26px 30px;display:flex;flex-direction:column;gap:14px;flex:1}
 .model-name{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
@@ -309,6 +318,7 @@ footer{background:#080D18;padding:56px 0 40px;border-top:1px solid var(--line)}
 @media (max-width:640px){
   section{padding:80px 0}
   .models-grid,.steps,.war-compare,.proof-gallery,.proof-strip{grid-template-columns:1fr}
+  .vs{display:none}
   .proof-strip .pg-item{height:200px}
   .proof-gallery{grid-auto-rows:190px}
   .pg-tall{grid-row:span 2}
@@ -661,8 +671,26 @@ footer{background:#080D18;padding:56px 0 40px;border-top:1px solid var(--line)}
     <div class="war-card rev" style="max-width:900px">
       <h3 style="font-size:27px;line-height:1.3">כולם נותנים שנה אחריות.<br><span style="color:var(--amber)">אנחנו נותנים שנתיים — על הכול.</span></h3>
       <div class="war-compare">
-        <div class="wc"><span class="wc-l">המקובל בשוק</span><p>שנה אחת של אחריות — ולרוב על נזילות בלבד.</p></div>
-        <div class="wc wc-us"><span class="wc-l">בקונטיין ליבינג</span><p>שנתיים של אחריות כוללת ומקיפה, מקצה לקצה: נזילות, חדירת מים, תזוזות מבנה, נזקים קונסטרוקטיביים שאינם באשמת הלקוח — ועוד.</p></div>
+        <div class="wc">
+          <span class="wc-l">המקובל בשוק</span>
+          <div class="wc-yr"><b>1</b><span>שנה אחריות</span></div>
+          <ul class="wc-list">
+            <li class="no">לרוב — נזילות בלבד</li>
+            <li class="no">תזוזות מבנה? לא כלול</li>
+            <li class="no">נזקים קונסטרוקטיביים? לא כלול</li>
+          </ul>
+        </div>
+        <span class="vs">מול</span>
+        <div class="wc wc-us">
+          <span class="wc-l">בקונטיין ליבינג</span>
+          <div class="wc-yr"><b>2</b><span>שנות אחריות מלאות</span></div>
+          <ul class="wc-list">
+            <li class="yes">נזילות וחדירת מים</li>
+            <li class="yes">תזוזות מבנה</li>
+            <li class="yes">נזקים קונסטרוקטיביים — שלא באשמת הלקוח</li>
+            <li class="yes">כוללת ומקיפה, מקצה לקצה</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="war-extras rev">
